@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bíblia Acessível Completa</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; background:#f3f3f3; }
+    header { background:#1e3a8a; color:white; padding:1rem; display:flex; justify-content:space-between; align-items:center; }
+    nav { background:#0f172a; color:white; padding:.5rem; display:flex; gap:1rem; }
+    .container { padding:1rem; }
+    .card { background:white; padding:1rem; border-radius:8px; margin-bottom:1rem; }
+    .language-selector img { width:28px; margin-left:5px; cursor:pointer; }
+    button { padding:8px 12px; border-radius:6px; cursor:pointer; border:0; }
+    #ttsPlay{background:#2563eb;color:white;} #ttsStop{background:#dc2626;color:white;}
+    .plan-item{margin:4px 0;}
+    textarea{width:100%;height:100px;}
+  </style>
+</head>
+<body>
+<header>
+  <h1>Bíblia Acessível</h1>
+  <div class="language-selector">
+    <img src="https://flagcdn.com/w20/br.png" data-lang="pt" />
+    <img src="https://flagcdn.com/w20/us.png" data-lang="en" />
+    <img src="https://flagcdn.com/w20/es.png" data-lang="es" />
+    <img src="https://flagcdn.com/w20/fr.png" data-lang="fr" />
+  </div>
+</header>
+
+<nav>
+  <span onclick="showSection('bible')" style="cursor:pointer">📖 Bíblia</span>
+  <span onclick="showSection('votd')" style="cursor:pointer">✨ Versículo do Dia</span>
+  <span onclick="showSection('plans')" style="cursor:pointer">🗓 Planos</span>
+  <span onclick="showSection('kids')" style="cursor:pointer">👧🧒 Infantil</span>
+  <span onclick="showSection('notes')" style="cursor:pointer">📝 Anotações</span>
+  <span onclick="showSection('search')" style="cursor:pointer">🔍 Buscar</span>
+</nav>
+
+<div class="container">
+
+<section id="bible" class="card">
+  <h2>📖 Livro: Gênesis</h2>
+  <div id="bibleText"></div>
+
+  <h3>🔊 Leitura</h3>
+  <button id="ttsPlay">▶ Ler</button>
+  <button id="ttsStop">■ Parar</button>
+</section>
+
+<section id="votd" class="card" style="display:none;">
+  <h2>✨ Versículo do Dia</h2>
+  <p id="votdText"></p>
+  <button onclick="shareVOTD()">📤 Compartilhar</button>
+  <button onclick="saveVOTDImage()">🖼 Gerar Imagem</button>
+</section>
+
+<section id="plans" class="card" style="display:none;">
+  <h2>🗓 Planos de Leitura</h2>
+  <div class="plan-item"><input type="checkbox"/> Plano 7 dias</div>
+  <div class="plan-item"><input type="checkbox"/> Plano 30 dias</div>
+  <div class="plan-item"><input type="checkbox"/> Plano 90 dias</div>
+</section>
+
+<section id="kids" class="card" style="display:none;">
+  <h2>👧🧒 Modo Infantil</h2>
+  <p>História do dia:</p>
+  <div id="kidsStory">Jesus ama você e está sempre com você!</div>
+</section>
+
+<section id="notes" class="card" style="display:none;">
+  <h2>📝 Anotações</h2>
+  <textarea id="notesArea"></textarea>
+  <button onclick="saveNotes()">💾 Salvar</button>
+  <button onclick="exportNotes()">⬇ Exportar</button>
+  <input type="file" id="importNotesFile" style="display:none" onchange="importNotes(event)">
+  <button onclick="document.getElementById('importNotesFile').click()">⬆ Importar</button>
+</section>
+
+<section id="search" class="card" style="display:none;">
+  <h2>🔍 Buscar</h2>
+  <input id="searchInput" placeholder="Digite o termo..." style="width:100%;padding:.5rem;" />
+  <button onclick="doSearch()">Buscar</button>
+  <div id="searchResults"></div>
+</section>
+
+</div>
+
+<script>
+// ===================== DADOS =====================
+const BIBLE = {
+  pt: { genesis: ["No princípio Deus criou os céus e a terra.","A terra era sem forma e vazia..."] },
+  en: { genesis: ["In the beginning God created the heavens and the earth.","The earth was formless and empty..."] },
+  es: { genesis: ["En el principio creó Dios los cielos y la tierra.","La tierra estaba desordenada y vacía..."] },
+  fr: { genesis: ["Au commencement, Dieu créa les cieux et la terre.","La terre était informe et vide..."] }
+};
+let currentLang = "pt";
+
+// ===================== RENDER DA BÍBLIA =====================
+function renderBible(){
+  const text = BIBLE[currentLang].genesis.map((v,i)=>`<p><strong>${i+1}</strong> ${v}</p>`).join("");
+  document.getElementById("bibleText").innerHTML = text;
+}
+
+// ===================== VERSÍCULO DO DIA =====================
+function verseOfDay(){
+  const arr = BIBLE[currentLang].genesis;
+  const index = new Date().getDate() % arr.length;
+  document.getElementById("votdText").innerText = arr[index];
+}
+
+// ===================== TTS =====================
+let synth = window.speechSynthesis; let utter;
+document.getElementById("ttsPlay").onclick = ()=>{
+  const text = document.getElementById("bibleText").innerText;
+  utter = new SpeechSynthesisUtterance(text);
+  synth.speak(utter);
+};
+document.getElementById("ttsStop").onclick = ()=> synth.cancel();
+
+// ===================== SECTIONS =====================
+function showSection(id){
+  document.querySelectorAll('section').forEach(s=>s.style.display='none');
+  document.getElementById(id).style.display='block';
+}
+
+// ===================== IDIOMA =====================
+Array.from(document.querySelectorAll('.language-selector img')).forEach(img=>{
+  img.onclick = ()=>{
+    currentLang = img.dataset.lang;
+    renderBible();
+    verseOfDay();
+  };
+});
+
+// ===================== ANOTAÇÕES =====================
+function saveNotes(){ localStorage.setItem('notes',document.getElementById('notesArea').value); }
+function loadNotes(){ document.getElementById('notesArea').value = localStorage.getItem('notes')||""; }
+function exportNotes(){ const data=new Blob([localStorage.getItem('notes')||""],{type:'text/plain'}); const url=URL.createObjectURL(data); const a=document.createElement('a'); a.href=url;a.download='notes.txt';a.click();}
+function importNotes(e){ const file=e.target.files[0]; const reader=new FileReader(); reader.onload=()=>{localStorage.setItem('notes',reader.result); loadNotes();}; reader.readAsText(file); }
+loadNotes();
+
+// ===================== BUSCA =====================
+function doSearch(){
+  const term=document.getElementById('searchInput').value.toLowerCase();
+  const results=BIBLE[currentLang].genesis
+    .map((v,i)=> v.toLowerCase().includes(term) ? `<p><strong>${i+1}</strong> ${v}</p>` : "")
+    .join("");
+  document.getElementById("searchResults").innerHTML = results || "Nenhum resultado";
+}
+
+// ===================== SHARE =====================
+function shareVOTD(){ alert("Compartilhamento simples ativado!"); }
+function saveVOTDImage(){ alert("Imagem gerada! (mock)"); }
+
+renderBible();
+verseOfDay();
+</script>
+
+<!-- VLibras -->
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<div vw class="enabled"><div vw-access-button class="active"></div><div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div></div>
+<script>new window.VLibras.Widget('https://vlibras.gov.br/app');</script>
+
+</body>
+</html>
