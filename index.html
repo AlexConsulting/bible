@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bíblia Acessível em Libras</title>
+  <title>Bíblia Acessível</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header>
-  <h1>Bíblia para a Comunidade Surda</h1>
+  <h1>Porção Diária da Bíblia</h1>
 </header>
 
 <nav id="main-nav">
@@ -117,7 +117,7 @@ const DATA = {
         // Array de histórias dinâmicas
         dailyKidsStories: [
             // Histórias 1-35 (Existentes)
-            "Deus nos ensina a sermos sábios e obedientes.", // Sabedoria (Provérbios)
+            "Deus nos ensina a ser espertos e obedientes.", // Sabedoria (Provérbios)
             "A gente confia em Deus de coração, não na nossa força.", // Confiança (Provérbios)
             "Falar coisas boas e pensar antes de abrir a boca é muito importante.", // Falar (Provérbios)
             "Não seja preguiçoso! Trabalhar faz o caminho ficar mais fácil.", // Obediência/Diligência (Provérbios)
@@ -307,29 +307,25 @@ const app = {
     renderVOTD() {
         const arr = DATA.bible.dailyVersesNVI; 
         const dayOfMonth = new Date().getDate();
-        // O operador módulo garante que o índice esteja sempre dentro do limite (0 a 69)
         const index = (dayOfMonth - 1) % arr.length; 
         const votdText = arr[index];
         
         document.getElementById("votd").innerHTML = `
             <h2>✨ Versículo do Dia (NVI)</h2>
             <p id="votdText">${votdText}</p>
-            <button onclick="app.shareVOTD()">📤 Compartilhar (via App Nativo)</button>
+            <button onclick="app.shareContent('votd')">📤 Compartilhar Versículo</button>
             <button onclick="app.saveVOTDImage()">🖼 Gerar Imagem (Mock)</button>
         `;
     },
 
     /**
      * Renderiza o conteúdo da seção Modo Infantil (NTLH + Story Dinâmico).
-     * ORDEM CORRIGIDA: Versículo -> Label da História -> História/Resumo.
      */
     renderKidsMode() {
-        // Pega os arrays NTLH e as histórias infantis
         const verseArr = DATA.kids.dailyVersesNTLH; 
         const storyArr = DATA.kids.dailyKidsStories; 
         
         const dayOfMonth = new Date().getDate();
-        // Garante que o Story e o Versículo usem o mesmo índice para sincronia
         const index = (dayOfMonth - 1) % verseArr.length; 
         
         const kidsVOTDText = verseArr[index];
@@ -341,11 +337,56 @@ const app = {
             <p class="story-label">História do dia:</p> 
             <div id="kidsStory">${kidsStoryText}</div>
             <p class="kids-footer-note">Bíblia para crianças.</p>
+            <button onclick="app.shareContent('kids')">📤 Compartilhar História</button>
         `;
     },
 
+    /**
+     * Lógica de compartilhamento nativo para VOTD e Modo Infantil.
+     */
+    async shareContent(type) {
+        // URL de mock para a Bíblia em Libras.
+        const shareURL = "https://biblia-libras-acessivel.web.app";
+        const dayOfMonth = new Date().getDate();
+        const index = (dayOfMonth - 1) % DATA.bible.dailyVersesNVI.length;
+
+        let title, text, content;
+
+        if (type === 'votd') {
+            content = DATA.bible.dailyVersesNVI[index];
+            title = "✨ Versículo do Dia (Bíblia Acessível em Libras)";
+            text = `Versículo de hoje (NVI):\n\n"${content}"\n\nLeia mais e veja em Libras: ${shareURL}`;
+        } else if (type === 'kids') {
+            const verse = DATA.kids.dailyVersesNTLH[index];
+            const story = DATA.kids.dailyKidsStories[index];
+            title = "👧🧒 História do Dia (Bíblia Acessível em Libras)";
+            text = `História para o dia de hoje:\n\n📖 "${story}"\n\n(Versículo NTLH: ${verse})\n\nConheça a Bíblia Acessível em Libras: ${shareURL}`;
+        } else {
+            return;
+        }
+
+        // 1. Tenta usar a API nativa (Melhor UX em mobile)
+        if (navigator.share) {
+            try {
+                await navigator.share({
+                    title: title,
+                    text: text,
+                    url: shareURL 
+                });
+                console.log('Conteúdo compartilhado com sucesso!');
+            } catch (error) {
+                // Se o usuário cancelar, ou houver erro
+                console.error('Erro ao tentar compartilhar:', error);
+                alert(`Não foi possível realizar o compartilhamento nativo. Copie o texto:\n\n${text}`);
+            }
+        } else {
+            // 2. Fallback simples para navegadores desktop que não suportam a API
+            console.warn('API de compartilhamento nativo não suportada. Usando alerta/cópia.');
+            alert(`Para compartilhar, copie o texto abaixo:\n\n${text}`);
+        }
+    },
+    
     // Funções de mock para demonstração
-    shareVOTD() { alert("Compartilhamento nativo ativado (para WhatsApp, etc.)!"); },
     saveVOTDImage() { alert("Imagem gerada com versículo e fundo bonito!"); }
 };
 
