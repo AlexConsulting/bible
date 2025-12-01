@@ -14,13 +14,11 @@
 
 <nav id="main-nav">
   <span onclick="app.showSection('votd')" data-section="votd">✨ Versículo do Dia</span>
- 
   <span onclick="app.showSection('kids')" data-section="kids">👧🧒 Modo Infantil</span>
 </nav>
 
 <div class="container">
   <section id="votd" class="card"></section>
-  <section id="plans" class="card" style="display:none;"></section>
   <section id="kids" class="card" style="display:none;"></section>
 </div>
 
@@ -34,21 +32,126 @@
  * ====================================
  * 1. MÓDULO DE DADOS
  * ====================================
- * Armazena todo o conteúdo estático da aplicação.
  */
 const DATA = {
-    // Conteúdo bíblico fixo em Português
+    // Versão NVI (Nova Versão Internacional) para Versículo do Dia (Adulto)
     bible: { 
-        genesis: [
-            "No princípio Deus criou os céus e a terra.",
-            "A terra era sem forma e vazia; e havia trevas sobre a face do abismo; e o Espírito de Deus se movia sobre a face das águas.",
-            "E disse Deus: Haja luz; e houve luz."
+        dailyVersesNVI: [
+            "O temor do Senhor é o princípio da sabedoria, e o conhecimento do Santo é entendimento. (Provérbios 9:10)",
+            "Confie no Senhor de todo o seu coração e não se apoie em seu próprio entendimento. (Provérbios 3:5)",
+            "Quem guarda a boca, guarda a sua vida, mas quem fala demais acaba se arruinando. (Provérbios 13:3)",
+            "O caminho do preguiçoso é cheio de espinhos, mas a vereda do justo é plana. (Provérbios 15:19)",
+            "De tudo o que se ouviu, a conclusão é esta: Tema a Deus e obedeça aos seus mandamentos, porque isso é o essencial para o homem. (Eclesiastes 12:13)",
+            "Levanto os meus olhos para os montes e pergunto: De onde me vem o socorro? O meu socorro vem do Senhor, que fez os céus e a terra. (Salmos 121:1-2)",
+            "O Senhor é o meu pastor; nada me faltará. (Salmos 23:1)",
+            "Dêem graças ao Senhor, porque ele é bom; o seu amor dura para sempre. (Salmos 107:1)",
+            "Louvem o Senhor, todas as nações; exaltem-no, todos os povos! (Salmos 117:1)",
+            "Peçam, e lhes será dado; busquem, e encontrarão; batam, e a porta lhes será aberta. (Mateus 7:7)",
+            "Ela dará à luz um filho, e você deverá dar-lhe o nome de Jesus, porque ele salvará o seu povo dos seus pecados. (Mateus 1:21)",
+            "Hoje, na cidade de Davi, lhes nasceu o Salvador, que é Cristo, o Senhor. (Lucas 2:11)",
+            "Glória a Deus nas alturas, e paz na terra aos homens aos quais ele concede o seu favor. (Lucas 2:14)",
+            "Por que vocês estão procurando entre os mortos aquele que vive? Ele não está aqui; ressuscitou! (Lucas 24:5-6)",
+            "Porque Deus tanto amou o mundo que deu o seu Filho Unigênito, para que todo o que nele crer não pereça, mas tenha a vida eterna. (João 3:16)",
+            "Eu sou a ressurreição e a vida. Aquele que crê em mim, ainda que morra, viverá. (João 11:25)",
+            "Ninguém tem maior amor do que este: dar a vida pelos seus amigos. (João 15:13)",
+            "Eles se dedicavam ao ensino dos apóstolos e à comunhão, ao partir do pão e às orações. (Atos 2:42)",
+            "Mas receberão poder quando o Espírito Santo descer sobre vocês, e serão minhas testemunhas em Jerusalém, em toda a Judeia e Samaria, e até os confins da terra. (Atos 1:8)",
+            "Todos os dias, continuavam a reunir-se regularmente no pátio do templo. Partiam o pão em suas casas e juntos participavam das suas refeições, com alegria e sinceridade de coração. (Atos 2:46)",
+            "Não se amoldem ao padrão deste mundo, mas transformem-se pela renovação da sua mente, para que sejam capazes de experimentar e comprovar a boa, agradável e perfeita vontade de Deus. (Romanos 12:2)",
+            "Portanto, rogo-lhes, irmãos, pelas misericórdias de Deus, que se ofereçam em sacrifício vivo, santo e agradável a Deus; este é o culto racional de vocês. (Romanos 12:1)",
+            "Pois o salário do pecado é a morte, mas o dom gratuito de Deus é a vida eterna em Cristo Jesus, nosso Senhor. (Romanos 6:23)",
+            "Porque todo aquele que invocar o nome do Senhor será salvo. (Romanos 10:13)",
+            "Alegrem-se na esperança, sejam pacientes na tribulação, perseverem na oração. (Romanos 12:12)",
+            "Aquele que é a Palavra tornou-se carne e viveu entre nós. Vimos a sua glória, glória como do Unigênito vindo do Pai, cheio de graça e de verdade. (João 1:14)",
+            "Estejam sempre atentos e orem para que vocês possam escapar de tudo o que está para acontecer e estar de pé diante do Filho do homem. (Lucas 21:36)",
+            "Mais vale o bom nome do que o melhor perfume. (Eclesiastes 7:1)",
+            "O coração alegre é bom remédio, mas o espírito abatido seca os ossos. (Provérbios 17:22)",
+            "Tudo o que tem vida louve o Senhor! Aleluia! (Salmos 150:6)",
+            "Inclina os teus ouvidos, ó Senhor, e responde-me, pois sou pobre e necessitado. (Salmos 86:1)",
+            "Portanto, sejam perfeitos como perfeito é o Pai celestial de vocês. (Mateus 5:48)",
+            "assim também em Cristo nós, embora muitos, formamos um corpo, e cada membro pertence um ao outro. (Romanos 12:5)",
+            "Para tudo há uma ocasião, e um tempo para cada propósito debaixo do céu. (Eclesiastes 3:1)",
+            "Portanto, vão e façam discípulos de todas as nações, batizando-os em nome do Pai e do Filho e do Espírito Santo. (Mateus 28:19)"
         ]
     },
-    // Conteúdo adaptado para o Modo Infantil
+    // Versão NTLH (Nova Tradução na Linguagem de Hoje) e Histórias para Modo Infantil
     kids: {
-        story: "Jesus ama você e está sempre com você!",
-        // Adicione histórias em linguagem simples aqui
+        // Array de histórias dinâmicas
+        dailyKidsStories: [
+            "Deus nos ensina a ser espertos e obedientes.", // Sabedoria
+            "A gente confia em Deus de coração, não na nossa força.", // Confiança
+            "Falar coisas boas e pensar antes de abrir a boca é muito importante.", // Falar
+            "Não seja preguiçoso! Trabalhar faz o caminho ficar mais fácil.", // Obediência/Diligência
+            "O mais importante é amar e obedecer ao nosso Pai do Céu.", // Obediência
+            "Olhe para o céu! Jesus é a ajuda que precisamos.", // Oração/Ajuda
+            "Deus é nosso pastor, e ele cuida de nós sempre.", // Amor de Deus
+            "Deus é bom demais, por isso a gente agradece e louva!", // Adoração/Gratidão
+            "Todas as pessoas do mundo devem louvar a Deus!", // Adoração
+            "Peça a Jesus, busque a Jesus, bata na porta do coração d'Ele.", // Oração
+            "Jesus nasceu para nos salvar e tirar nossos erros.", // Nascimento/Salvação
+            "O Salvador nasceu! Ele é o Messias que a Bíblia prometeu.", // Nascimento
+            "Paz no mundo e glória ao Papai do Céu!", // Adoração/Paz
+            "Não procurem o Rei Jesus entre os mortos. Ele está vivo!", // Ressurreição
+            "Deus ama o mundo de um jeito tão grande que nos deu Seu Filho.", // Amor de Deus/Salvação
+            "Jesus é a vida! Quem crê n'Ele nunca vai morrer de verdade.", // Ressurreição
+            "O maior amor é dar a vida por quem a gente ama.", // Amor pelos irmãos
+            "A Igreja é a família de Jesus que ora e aprende junto.", // Igreja/Comunhão
+            "O Espírito Santo nos dá a força para falar de Jesus.", // Santidade/Poder
+            "Ficar junto com alegria e comer o pão: isso é a Igreja!", // Igreja/Comunhão
+            "Não copie as coisas erradas do mundo. Mude o seu jeito de pensar.", // Santidade
+            "Entregue sua vida inteira a Deus, como um presente.", // Santidade
+            "O erro nos leva para longe de Deus, mas Jesus nos dá a vida.", // Salvação
+            "Se a gente pedir ajuda a Jesus, seremos salvos!", // Salvação
+            "Fique feliz esperando, tenha paciência e ore muito.", // Oração/Paciência
+            "Jesus é a Palavra de Deus que virou gente.", // Nascimento/Jesus
+            "Ore sempre e fique esperto para o dia que Jesus voltar.", // Oração/Vigilância
+            "Ser uma pessoa boa vale mais do que qualquer perfume caro.", // Respeito/Caráter
+            "Ter um coração alegre é o melhor remédio para a tristeza.", // Santidade/Alegria
+            "Tudo o que respira deve louvar o Senhor!", // Adoração
+            "Deus, escuta a minha oração, eu preciso muito de Ti!", // Oração
+            "Tente ser perfeito, porque o nosso Pai do Céu é perfeito.", // Obediência/Santidade
+            "Na Igreja, somos todos diferentes, mas um só corpo em Jesus.", // Amor pelos irmãos/Comunhão
+            "Deus marcou um tempo para tudo o que acontece.", // Sabedoria/Tempo
+            "Vá e ajude todas as pessoas a serem amigas de Jesus." // Missão/Obediência
+        ],
+        
+        dailyVersesNTLH: [
+            "Para ser sábio, é preciso primeiro temer a Deus, o Senhor. Quem conhece o Santo Deus tem compreensão das coisas. (Provérbios 9:10)",
+            "Confie no Senhor de todo o coração e não se apoie na sua própria inteligência. (Provérbios 3:5)",
+            "Quem é cuidadoso no que diz salva a sua vida, mas quem fala demais se destrói. (Provérbios 13:3)",
+            "O preguiçoso encontra dificuldades por onde quer que ande, mas para a pessoa honesta a vida é fácil. (Provérbios 15:19)",
+            "De tudo o que foi dito, a conclusão é esta: tema a Deus e obedeça aos seus mandamentos porque foi para isso que fomos criados. (Eclesiastes 12:13)",
+            "Olho para os montes, de onde me virá a ajuda? A minha ajuda virá do Senhor, que fez o céu e a terra. (Salmos 121:1-2)",
+            "O Senhor é o meu pastor e nada me faltará. (Salmos 23:1)",
+            "Agradeçam ao Senhor porque ele é bom; o seu amor dura para sempre. (Salmos 107:1)",
+            "Louvem o Senhor, todos os povos! Louvem o Senhor, todas as nações! (Salmos 117:1)",
+            "Peçam e vocês receberão; procurem e vocês acharão; batam, e a porta será aberta para vocês. (Mateus 7:7)",
+            "Ela terá um menino, e você porá nele o nome de Jesus, pois ele salvará o seu povo dos pecados deles. (Mateus 1:21)",
+            "Hoje mesmo, na cidade de Davi, nasceu o Salvador de vocês – o Messias, o Senhor! (Lucas 2:11)",
+            "Glória a Deus nas maiores alturas do céu! E paz na terra para as pessoas a quem ele quer bem! (Lucas 2:14)",
+            "Por que vocês estão procurando entre os mortos quem está vivo? Ele não está aqui! Já ressuscitou! (Lucas 24:5-6)",
+            "Porque Deus amou o mundo tanto, que deu o seu único Filho, para que todo aquele que crer nele não morra, mas tenha a vida eterna. (João 3:16)",
+            "Eu sou a ressurreição e a vida. Quem crê em mim, ainda que morra, viverá. (João 11:25)",
+            "Ninguém prova um amor maior do que este: dar a vida por um amigo. (João 15:13)",
+            "Eles se reuniam sempre para ouvir os ensinamentos dos apóstolos, para a comunhão, para repartir o pão e para orar juntos. (Atos 2:42)",
+            "Mas, quando o Espírito Santo descer sobre vocês, terão poder e serão minhas testemunhas em Jerusalém, em toda a Judeia, na Samaria e até nos lugares mais distantes da terra. (Atos 1:8)",
+            "Todos os dias, continuavam a se reunir no pátio do Templo. E nas suas casas partiam o pão e participavam das refeições com alegria e gratidão. (Atos 2:46)",
+            "Não vivam como vivem as pessoas deste mundo, mas deixem que Deus os transforme por meio de uma completa mudança da mente de vocês. (Romanos 12:2)",
+            "Portanto, meus irmãos, por causa da grande misericórdia de Deus, peço que vocês se ofereçam completamente a Deus como um sacrifício vivo, dedicado ao seu serviço e agradável a ele. (Romanos 12:1)",
+            "Pois o pagamento do pecado é a morte, mas o presente gratuito de Deus é a vida eterna, que temos em união com Cristo Jesus, o nosso Senhor. (Romanos 6:23)",
+            "De fato, todas as pessoas que pedirem a ajuda do Senhor serão salvas. (Romanos 10:13)",
+            "Alegrem-se por causa da esperança que vocês têm. Sejam pacientes nas dificuldades e continuem a orar. (Romanos 12:12)",
+            "A Palavra se tornou um ser humano e morou entre nós, cheia de amor e de verdade. E nós vimos a glória do Filho único do Pai. (João 1:14)",
+            "Fiquem vigiando e orem sempre, a fim de que possam escapar de tudo o que vai acontecer e possam estar de pé na presença do Filho do Homem. (Lucas 21:36)",
+            "A boa reputação vale mais do que o azeite de perfume mais caro. (Eclesiastes 7:1)",
+            "A alegria faz bem à saúde, mas a tristeza faz a pessoa ficar doente. (Provérbios 17:22)",
+            "Que todos os seres vivos louvem o Senhor! Aleluia! (Salmos 150:6)",
+            "Ó Senhor Deus, escuta-me e responde a minha oração, pois estou aflito e necessitado. (Salmos 86:1)",
+            "Portanto, que a perfeição seja a meta de vocês, assim como é a meta do Pai de vocês, que está no céu. (Mateus 5:48)",
+            "Assim também nós, embora sejamos muitos, somos um só corpo por estarmos unidos com Cristo. E todos estamos unidos uns com os outros como partes diferentes de um só corpo. (Romanos 12:5)",
+            "Para tudo há o seu momento certo; há tempo para cada propósito debaixo do céu. (Eclesiastes 3:1)",
+            "Portanto, vão a todos os povos e façam com que sejam meus seguidores, batizando esses seguidores em nome do Pai, do Filho e do Espírito Santo. (Mateus 28:19)"
+        ]
     }
 };
 
@@ -56,54 +159,45 @@ const DATA = {
  * ====================================
  * 2. MÓDULO PRINCIPAL DA APLICAÇÃO (app)
  * ====================================
- * Contém o estado e toda a lógica de renderização.
  */
 const app = {
-    currentLang: "pt", // Idioma fixo
+    currentLang: "pt", 
 
-    /**
-     * Inicializa a aplicação, chamando as renderizações e definindo a seção inicial.
-     */
     init() {
         console.log("Bíblia Acessível em Libras inicializada.");
         this.renderVOTD();
-        this.renderPlans();
         this.renderKidsMode();
-        this.showSection('votd'); // Inicia no Versículo do Dia
+        this.showSection('votd'); 
     },
 
     /**
      * Alterna a visibilidade das seções e aplica/remove o tema infantil.
-     * @param {string} id - O ID da seção a ser exibida.
      */
     showSection(id) {
-        // 1. Oculta todas as seções e exibe a desejada
         document.querySelectorAll('.container section').forEach(s => s.style.display = 'none');
         document.getElementById(id).style.display = 'block';
 
-        // 2. Alterna o estado do Modo Infantil (Adiciona/Remove a classe do Body)
         if (id === 'kids') {
             document.body.classList.add('kids-mode');
         } else {
             document.body.classList.remove('kids-mode');
         }
 
-        // 3. Destaca o item de navegação ativo
         document.querySelectorAll('#main-nav span').forEach(s => s.classList.remove('active'));
         document.querySelector(`#main-nav span[data-section="${id}"]`).classList.add('active');
     },
 
     /**
-     * Gera o Versículo do Dia (VOTD) de forma pseudo-aleatória (baseado na data).
+     * Gera o Versículo do Dia (VOTD) - NVI.
      */
     renderVOTD() {
-        const arr = DATA.bible.genesis;
-        // Seleção do versículo baseada no dia do mês para ser consistente
-        const index = new Date().getDate() % arr.length; 
+        const arr = DATA.bible.dailyVersesNVI; 
+        const dayOfMonth = new Date().getDate();
+        const index = (dayOfMonth - 1) % arr.length; 
         const votdText = arr[index];
         
         document.getElementById("votd").innerHTML = `
-            <h2>✨ Versículo do Dia</h2>
+            <h2>✨ Versículo do Dia (NVI)</h2>
             <p id="votdText">${votdText}</p>
             <button onclick="app.shareVOTD()">📤 Compartilhar (via App Nativo)</button>
             <button onclick="app.saveVOTDImage()">🖼 Gerar Imagem (Mock)</button>
@@ -111,27 +205,27 @@ const app = {
     },
 
     /**
-     * Renderiza o conteúdo da seção de Planos de Leitura.
-     */
-    renderPlans() {
-        document.getElementById("plans").innerHTML = `
-            <h2>🗓 Planos de Leitura Anuais</h2>
-            <div class="plan-item"><input type="checkbox"/> Plano Anual Completo</div>
-            <div class="plan-item"><input type="checkbox"/> Novo Testamento em 6 meses</div>
-            <div class="plan-item"><input type="checkbox"/> Sabedoria de Provérbios em 30 dias</div>
-            <p>Os planos de leitura ajudam a manter a rotina visual de estudo.</p>
-        `;
-    },
-
-    /**
-     * Renderiza o conteúdo da seção Modo Infantil.
+     * Renderiza o conteúdo da seção Modo Infantil (NTLH + Story Dinâmico).
+     * ORDEM CORRIGIDA: Versículo -> Label da História -> História/Resumo.
      */
     renderKidsMode() {
+        // Pega os arrays NTLH e as histórias infantis
+        const verseArr = DATA.kids.dailyVersesNTLH; 
+        const storyArr = DATA.kids.dailyKidsStories; 
+        
+        const dayOfMonth = new Date().getDate();
+        // Garante que o Story e o Versículo usem o mesmo índice para sincronia
+        const index = (dayOfMonth - 1) % verseArr.length; 
+        
+        const kidsVOTDText = verseArr[index];
+        const kidsStoryText = storyArr[index]; 
+
         document.getElementById("kids").innerHTML = `
-            <h2>👧🧒 Modo Infantil</h2>
-            <p>História do dia:</p>
-            <div id="kidsStory">${DATA.kids.story}</div>
-            <p>Conteúdo com linguagem simples e temas neutros.</p>
+            <h2>👧🧒 Modo Infantil (NTLH)</h2>
+            <p id="kidsVOTD">${kidsVOTDText}</p> 
+            <p class="story-label">História do dia:</p> 
+            <div id="kidsStory">${kidsStoryText}</div>
+            <p>Bíblia para crianças.</p>
         `;
     },
 
@@ -144,7 +238,6 @@ const app = {
 // 3. EXECUÇÃO
 // ====================================
 
-// Garante que a aplicação inicie após o carregamento completo do HTML
 document.addEventListener('DOMContentLoaded', () => {
     app.init();
 });
