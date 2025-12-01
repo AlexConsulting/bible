@@ -60,10 +60,9 @@ header {
     background: #2563eb; /* Azul primário */
     color: white;
     display: flex;
-    /* Distribuição uniforme dos itens na barra de navegação */
-    justify-content: space-around; 
+    /* ALTERADO: Centraliza o grupo de botões */
+    justify-content: center; 
     padding: 0.75rem 0;
-    /* Fixa a navegação no topo da tela */
     position: sticky; 
     top: 0;
     z-index: 10;
@@ -71,9 +70,9 @@ header {
 
 #main-nav span {
     cursor: pointer;
-    padding: 0.5rem;
+    /* ALTERADO: Aumenta padding horizontal e REMOVE flex-grow: 1 */
+    padding: 0.5rem 1.5rem; 
     font-weight: bold;
-    flex-grow: 1;
     text-align: center;
     transition: background 0.3s;
     /* Linha divisória sutil para separar os itens */
@@ -104,6 +103,7 @@ button {
     color: white;
     transition: background 0.3s;
     font-size: 1rem;
+    text-align: center; /* NOVO */
 }
 
 button:hover {
@@ -176,11 +176,21 @@ body.kids-mode {
         font-size: 1.5rem;
     }
 
+    /* NOVO: Centraliza todos os elementos inline dentro do card, incluindo botões */
+    .card {
+        text-align: center; 
+    }
+
     /* Botões não precisam ser 100% da largura em telas grandes */
     button {
         width: auto; 
         padding: 12px 20px;
         display: inline-block;
         margin-right: 10px;
+    }
+    
+    /* NOVO: Remove a margem do último botão para centralização limpa */
+    button:last-child {
+        margin-right: 0;
     }
 }
