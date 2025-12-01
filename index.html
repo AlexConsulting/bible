@@ -118,7 +118,7 @@ const DATA = {
         dailyKidsStories: [
             // Histórias 1-35 (Existentes)
             "Deus nos ensina a sermos sábios e obedientes.", // Sabedoria (Provérbios)
-            "Nós confiamos em Deus de coração, não na nossa força.", // Confiança (Provérbios)
+            "A gente confia em Deus de coração, não na nossa força.", // Confiança (Provérbios)
             "Falar coisas boas e pensar antes de abrir a boca é muito importante.", // Falar (Provérbios)
             "Não seja preguiçoso! Trabalhar faz o caminho ficar mais fácil.", // Obediência/Diligência (Provérbios)
             "O mais importante é amar e obedecer ao nosso Pai do Céu.", // Obediência (Eclesiastes)
@@ -336,8 +336,8 @@ const app = {
             <p id="kidsVOTD">${kidsVOTDText}</p> 
             <p class="story-label">História do dia:</p> 
             <div id="kidsStory">${kidsStoryText}</div>
-            <p class="kids-footer-note">Bíblia para crianças.</p>
             <button onclick="app.shareContent('kids')">📤 Compartilhar História</button>
+			
         `;
     },
 
@@ -355,12 +355,12 @@ const app = {
         if (type === 'votd') {
             content = DATA.bible.dailyVersesNVI[index];
             title = "✨ Versículo do Dia (Bíblia Acessível em Libras)";
-            text = `Versículo de hoje (NVI):\n\n"${content}"\n\nLeia mais e veja em Libras: ${shareURL}`;
+            text = `Versículo de hoje (NVI):\n\n"${content}"\n\nLeia mais e veja também em Libras: ${shareURL}`;
         } else if (type === 'kids') {
             const verse = DATA.kids.dailyVersesNTLH[index];
             const story = DATA.kids.dailyKidsStories[index];
             title = "👧🧒 História do Dia (Bíblia Acessível em Libras)";
-            text = `História para o dia de hoje:\n\n📖 "${story}"\n\n(Versículo NTLH: ${verse})\n\nConheça a Bíblia Acessível em Libras: ${shareURL}`;
+            text = `História para o dia de hoje:\n\n📖 "${story}"\n\n(Versículo NTLH: ${verse})\n\nConheça a Porção Bíblica Diária: ${shareURL}`;
         } else {
             return;
         }
@@ -400,7 +400,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </script>
 
+<footer>
+    <p>Desenvolvido e Adaptado por © Alex Silva - Uso livre com atribuição - 2025</p>
+</footer>
+
 </body>
-
 </html>
-
