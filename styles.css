@@ -194,3 +194,24 @@ body.kids-mode {
         margin-right: 0;
     }
 }
+
+/* ----------------------------------- */
+/* 7. RODAPÉ (Footer)                  */
+/* ----------------------------------- */
+footer {
+    background: #e0e0e0; /* Cinza claro */
+    color: #666; /* Texto cinza escuro */
+    padding: 1.5rem 1rem;
+    text-align: center;
+    font-size: 0.8rem; /* Letra pequena e discreta */
+    margin-top: 2rem;
+    border-top: 1px solid #ccc;
+}
+
+/* Garante que o texto do rodapé também não ultrapasse a largura máxima em desktop */
+@media (min-width: 600px) {
+    footer p {
+        max-width: 700px; 
+        margin: 0 auto;
+    }
+}
