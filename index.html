@@ -30,13 +30,14 @@
 <script>
 /**
  * ====================================
- * 1. MÓDULO DE DADOS
+ * 1. MÓDULO DE DADOS (Expandido para 70 Versículos)
  * ====================================
  */
 const DATA = {
     // Versão NVI (Nova Versão Internacional) para Versículo do Dia (Adulto)
     bible: { 
         dailyVersesNVI: [
+            // Versículos 1-35 (Existentes)
             "O temor do Senhor é o princípio da sabedoria, e o conhecimento do Santo é entendimento. (Provérbios 9:10)",
             "Confie no Senhor de todo o seu coração e não se apoie em seu próprio entendimento. (Provérbios 3:5)",
             "Quem guarda a boca, guarda a sua vida, mas quem fala demais acaba se arruinando. (Provérbios 13:3)",
@@ -71,51 +72,127 @@ const DATA = {
             "Portanto, sejam perfeitos como perfeito é o Pai celestial de vocês. (Mateus 5:48)",
             "assim também em Cristo nós, embora muitos, formamos um corpo, e cada membro pertence um ao outro. (Romanos 12:5)",
             "Para tudo há uma ocasião, e um tempo para cada propósito debaixo do céu. (Eclesiastes 3:1)",
-            "Portanto, vão e façam discípulos de todas as nações, batizando-os em nome do Pai e do Filho e do Espírito Santo. (Mateus 28:19)"
+            "Portanto, vão e façam discípulos de todas as nações, batizando-os em nome do Pai e do Filho e do Espírito Santo. (Mateus 28:19)",
+            
+            // Versículos 36-70 (Novos: Gênesis, Isaías, Efésios, Filipenses, Gálatas, e mais)
+            "No princípio, Deus criou os céus e a terra. (Gênesis 1:1)",
+            "Criou Deus o homem à sua imagem, à imagem de Deus o criou; homem e mulher os criou. (Gênesis 1:27)",
+            "Então o Senhor Deus declarou: 'Não é bom que o homem esteja só; farei para ele alguém que o auxilie e lhe corresponda'. (Gênesis 2:18)",
+            "Mas o Senhor Deus chamou o homem, perguntando: 'Onde está você?'. (Gênesis 3:9)",
+            "No entanto, Noé encontrou graça aos olhos do Senhor. (Gênesis 6:8)",
+            "Por isso o Senhor mesmo lhes dará um sinal: a virgem conceberá e dará à luz um filho, e o chamará Emanuel. (Isaías 7:14)",
+            "Pois um menino nos nasceu, um filho nos foi dado, e o governo está sobre os seus ombros. (Isaías 9:6)",
+            "Mas ele foi transpassado por causa das nossas transgressões, foi esmagado por causa de nossas iniquidades. (Isaías 53:5)",
+            "O Senhor fez cair sobre ele a iniquidade de todos nós. (Isaías 53:6)",
+            "Venham, todos vocês que estão com sede, venham às águas; e vocês que não possuem dinheiro algum, venham, comprem e comam. (Isaías 55:1)",
+            "Pois vocês são salvos pela graça, por meio da fé, e isto não vem de vocês, é dom de Deus. (Efésios 2:8)",
+            "Não por obras, para que ninguém se glorie. (Efésios 2:9)",
+            "Façam todo o esforço para conservar a unidade do Espírito pelo vínculo da paz. (Efésios 4:3)",
+            "Nenhuma palavra suja saia da boca de vocês, mas apenas a que for útil para edificar os outros. (Efésios 4:29)",
+            "Portanto, sejam imitadores de Deus, como filhos amados. (Efésios 5:1)",
+            "Não se embriaguem com vinho, que leva à devassidão, mas sim encham-se do Espírito. (Efésios 5:18)",
+            "Maridos, amem suas mulheres, assim como Cristo amou a igreja e entregou-se por ela. (Efésios 5:25)",
+            "Mulheres, sujeitem-se a seus próprios maridos, como ao Senhor. (Efésios 5:22)",
+            "Filhos, obedeçam a seus pais no Senhor, pois isto é justo. (Efésios 6:1)",
+            "Sejam fortalecidos no Senhor e no seu forte poder. (Efésios 6:10)",
+            "Porque para mim o viver é Cristo e o morrer é lucro. (Filipenses 1:21)",
+            "Nada façam por ambição egoísta ou por vaidade; mas humildemente considerem os outros superiores a vocês mesmos. (Filipenses 2:3)",
+            "Seja a atitude de vocês a mesma de Cristo Jesus. (Filipenses 2:5)",
+            "Não andem ansiosos por coisa alguma, mas em tudo, pela oração e súplicas, e com ação de graças, apresentem seus pedidos a Deus. (Filipenses 4:6)",
+            "Tudo posso naquele que me fortalece. (Filipenses 4:13)",
+            "Fui crucificado com Cristo. Assim, já não sou eu quem vive, mas Cristo vive em mim. (Gálatas 2:20)",
+            "Foi para a liberdade que Cristo nos libertou. Portanto, permaneçam firmes e não se deixem submeter novamente a um jugo de escravidão. (Gálatas 5:1)",
+            "Mas o fruto do Espírito é amor, alegria, paz, paciência, amabilidade, bondade, fidelidade. (Gálatas 5:22)",
+            "mansidão e domínio próprio. Contra essas coisas não há lei. (Gálatas 5:23)",
+            "Não se deixem enganar: de Deus não se zomba. Pois o que o homem semear, isso também colherá. (Gálatas 6:7)",
+            "Respondeu Jesus: 'Eu sou o caminho, a verdade e a vida. Ninguém vem ao Pai, a não ser por mim.' (João 14:6)",
+            "Busquem, pois, em primeiro lugar o Reino de Deus e a sua justiça, e todas essas coisas lhes serão acrescentadas. (Mateus 6:33)",
+            "Deus é o nosso refúgio e a nossa fortaleza, auxílio sempre presente na adversidade. (Salmos 46:1)",
+            "Amados, amemos uns aos outros, pois o amor procede de Deus. Aquele que ama é nascido de Deus e o conhece. (1 João 4:7)",
+            "Aquele que dá testemunho destas coisas diz: 'Sim, venho em breve!' Amém. Vem, Senhor Jesus! (Apocalipse 22:20)"
         ]
     },
     // Versão NTLH (Nova Tradução na Linguagem de Hoje) e Histórias para Modo Infantil
     kids: {
         // Array de histórias dinâmicas
         dailyKidsStories: [
-            "Deus nos ensina a sermos sábios e obedientes.", // Sabedoria
-            "A gente confia em Deus de coração, não na nossa força.", // Confiança
-            "Falar coisas boas e pensar antes de abrir a boca é muito importante.", // Falar
-            "Não seja preguiçoso! Trabalhar faz o caminho ficar mais fácil.", // Obediência/Diligência
-            "O mais importante é amar e obedecer ao nosso Pai do Céu.", // Obediência
-            "Olhe para o céu! Jesus é a ajuda que precisamos.", // Oração/Ajuda
-            "Deus é nosso pastor, e ele cuida de nós sempre.", // Amor de Deus
-            "Deus é bom demais, por isso a gente agradece e louva!", // Adoração/Gratidão
-            "Todas as pessoas do mundo devem louvar a Deus!", // Adoração
-            "Peça a Jesus, busque a Jesus, bata na porta do coração d'Ele.", // Oração
-            "Jesus nasceu para nos salvar e tirar nossos erros.", // Nascimento/Salvação
-            "O Salvador nasceu! Ele é o Messias que a Bíblia prometeu.", // Nascimento
-            "Paz no mundo e glória ao Papai do Céu!", // Adoração/Paz
-            "Não procurem o Rei Jesus entre os mortos. Ele está vivo!", // Ressurreição
-            "Deus ama o mundo de um jeito tão grande que nos deu Seu Filho.", // Amor de Deus/Salvação
-            "Jesus é a vida! Quem crê n'Ele nunca vai morrer de verdade.", // Ressurreição
-            "O maior amor é dar a vida por quem a gente ama.", // Amor pelos irmãos
-            "A Igreja é a família de Jesus que ora e aprende junto.", // Igreja/Comunhão
-            "O Espírito Santo nos dá a força para falar de Jesus.", // Santidade/Poder
-            "Ficar junto com alegria e comer o pão: isso é a Igreja!", // Igreja/Comunhão
-            "Não copie as coisas erradas do mundo. Mude o seu jeito de pensar.", // Santidade
-            "Entregue sua vida inteira a Deus, como um presente.", // Santidade
-            "O erro nos leva para longe de Deus, mas Jesus nos dá a vida.", // Salvação
-            "Se a gente pedir ajuda a Jesus, seremos salvos!", // Salvação
-            "Fique feliz esperando, tenha paciência e ore muito.", // Oração/Paciência
-            "Jesus é a Palavra de Deus que virou gente.", // Nascimento/Jesus
-            "Ore sempre e fique esperto para o dia que Jesus voltar.", // Oração/Vigilância
-            "Ser uma pessoa boa vale mais do que qualquer perfume caro.", // Respeito/Caráter
-            "Ter um coração alegre é o melhor remédio para a tristeza.", // Santidade/Alegria
-            "Tudo o que respira deve louvar o Senhor!", // Adoração
-            "Deus, escuta a minha oração, eu preciso muito de Ti!", // Oração
-            "Tente ser perfeito, porque o nosso Pai do Céu é perfeito.", // Obediência/Santidade
-            "Na Igreja, somos todos diferentes, mas um só corpo em Jesus.", // Amor pelos irmãos/Comunhão
-            "Deus marcou um tempo para tudo o que acontece.", // Sabedoria/Tempo
-            "Vá e ajude todas as pessoas a serem amigas de Jesus." // Missão/Obediência
+            // Histórias 1-35 (Existentes)
+            "Deus nos ensina a sermos sábios e obedientes.", // Sabedoria (Provérbios)
+            "A gente confia em Deus de coração, não na nossa força.", // Confiança (Provérbios)
+            "Falar coisas boas e pensar antes de abrir a boca é muito importante.", // Falar (Provérbios)
+            "Não seja preguiçoso! Trabalhar faz o caminho ficar mais fácil.", // Obediência/Diligência (Provérbios)
+            "O mais importante é amar e obedecer ao nosso Pai do Céu.", // Obediência (Eclesiastes)
+            "Olhe para o céu! Jesus é a ajuda que precisamos.", // Oração/Ajuda (Salmos)
+            "Deus é nosso pastor, e ele cuida de nós sempre.", // Amor de Deus (Salmos)
+            "Deus é bom demais, por isso a gente agradece e louva!", // Adoração/Gratidão (Salmos)
+            "Todas as pessoas do mundo devem louvar a Deus!", // Adoração (Salmos)
+            "Peça a Jesus, busque a Jesus, bata na porta do coração d'Ele.", // Oração (Mateus)
+            "Jesus nasceu para nos salvar e tirar nossos erros.", // Nascimento/Salvação (Mateus)
+            "O Salvador nasceu! Ele é o Messias que a Bíblia prometeu.", // Nascimento (Lucas)
+            "Paz no mundo e glória ao Papai do Céu!", // Adoração/Paz (Lucas)
+            "Não procurem o Rei Jesus entre os mortos. Ele está vivo!", // Ressurreição (Lucas)
+            "Deus ama o mundo de um jeito tão grande que nos deu Seu Filho.", // Amor de Deus/Salvação (João)
+            "Jesus é a vida! Quem crê n'Ele nunca vai morrer de verdade.", // Ressurreição (João)
+            "O maior amor é dar a vida por quem a gente ama.", // Amor pelos irmãos (João)
+            "A Igreja é a família de Jesus que ora e aprende junto.", // Igreja/Comunhão (Atos)
+            "O Espírito Santo nos dá a força para falar de Jesus.", // Santidade/Poder (Atos)
+            "Ficar junto com alegria e comer o pão: isso é a Igreja!", // Igreja/Comunhão (Atos)
+            "Não copie as coisas erradas do mundo. Mude o seu jeito de pensar.", // Santidade (Romanos)
+            "Entregue sua vida inteira a Deus, como um presente.", // Santidade (Romanos)
+            "O erro nos leva para longe de Deus, mas Jesus nos dá a vida.", // Salvação (Romanos)
+            "Se a gente pedir ajuda a Jesus, seremos salvos!", // Salvação (Romanos)
+            "Fique feliz esperando, tenha paciência e ore muito.", // Oração/Paciência (Romanos)
+            "Jesus é a Palavra de Deus que virou gente.", // Nascimento/Jesus (João)
+            "Ore sempre e fique esperto para o dia que Jesus voltar.", // Oração/Vigilância (Lucas)
+            "Ser uma pessoa boa vale mais do que qualquer perfume caro.", // Respeito/Caráter (Eclesiastes)
+            "Ter um coração alegre é o melhor remédio para a tristeza.", // Santidade/Alegria (Provérbios)
+            "Tudo o que respira deve louvar o Senhor!", // Adoração (Salmos)
+            "Deus, escuta a minha oração, eu preciso muito de Ti!", // Oração (Salmos)
+            "Tente ser perfeito, porque o nosso Pai do Céu é perfeito.", // Obediência/Santidade (Mateus)
+            "Na Igreja, somos todos diferentes, mas um só corpo em Jesus.", // Amor pelos irmãos/Comunhão (Romanos)
+            "Deus marcou um tempo para tudo o que acontece.", // Sabedoria/Tempo (Eclesiastes)
+            "Vá e ajude todas as pessoas a serem amigas de Jesus.", // Missão/Obediência (Mateus)
+            
+            // Histórias 36-70 (Novas: Gênesis, Isaías, Efésios, Filipenses, Gálatas, e mais)
+            "Deus fez tudo que existe. Ele é o Criador poderoso.", // Criação (Gênesis)
+            "Você e eu somos especiais, feitos como Deus. Você é valioso!", // Criação do Homem (Gênesis)
+            "Deus nos deu amigos e família para vivermos juntos. É a primeira comunidade.", // Criação da Mulher (Gênesis)
+            "Quando a gente erra, Deus pergunta onde estamos. Ele nos chama para o arrependimento.", // Queda/Chamado (Gênesis)
+            "Mesmo quando o mundo erra, Deus sempre tem um plano de amor e graça.", // Graça de Deus (Gênesis)
+            "Emanuel quer dizer: Deus está conosco! É o nome de Jesus, nosso Salvador.", // Profecia (Isaías)
+            "Jesus é o presente de Deus para todo o mundo. Ele é o Rei que nos guia.", // Profecia (Isaías)
+            "Jesus levou o castigo por todos os nossos erros. Ele nos ama muito.", // Sofrimento de Cristo (Isaías)
+            "Jesus fez o que não merecíamos para nos trazer de volta a Deus.", // Substituição (Isaías)
+            "Jesus nos dá a água da vida, que nunca acaba e sacia de verdade.", // Chamado (Isaías)
+            "A salvação não é comprada ou merecida; é um presente gratuito de Deus. Receba pela fé.", // Graça e Fé (Efésios)
+            "Ninguém pode dizer que merece ir para o céu. É só a obra de Cristo.", // Justificação (Efésios)
+            "O Espírito Santo nos ajuda a viver em paz e união com os amigos da Igreja.", // Unidade (Efésios)
+            "Use sua boca para falar coisas boas e ajudar o próximo a ser feliz.", // Santidade do Falar (Efésios)
+            "Queremos ser parecidos com Deus, cheios de amor e bondade.", // Imitação de Cristo (Efésios)
+            "Peça ao Espírito Santo para encher seu coração e te guiar em tudo.", // Espírito Santo (Efésios)
+            "O papai ama a mamãe como Jesus nos amou: com carinho e sacrifício.", // Papel do Marido (Efésios)
+            "A mamãe respeita o papai e o ajuda para o bem da família.", // Papel da Mulher (Efésios)
+            "Obedecer aos pais agrada a Deus e te faz uma criança abençoada. Este é o caminho certo!", // Obediência aos Pais (Efésios)
+            "Deus nos dá a força de que precisamos para vencer o mal todos os dias.", // Poder de Deus (Efésios)
+            "Se Jesus é o centro da sua vida, você ganha sempre. Ele é o maior tesouro!", // Cristo é o Centro (Filipenses)
+            "Não seja orgulhoso. Ajude os outros e considere-os mais importantes que você.", // Humildade (Filipenses)
+            "Tente pensar e agir como Jesus pensava e agia, com mansidão e amor.", // Imitação de Cristo (Filipenses)
+            "Entregue todas as suas preocupações para Jesus na oração. Ele cuida de você.", // Ansiedade/Oração (Filipenses)
+            "Com Jesus, você pode fazer tudo o que Ele te pedir. Ele é a sua força.", // Força em Cristo (Filipenses)
+            "Sua vida antiga acabou; agora Jesus mora em seu coração e te guia.", // Nova Vida em Cristo (Gálatas)
+            "Não precisamos mais viver presos ao pecado; Jesus nos deu a verdadeira liberdade.", // Liberdade (Gálatas)
+            "O Espírito de Deus te ajuda a dar frutos bonitos como o amor, a alegria e a paz.", // Fruto do Espírito (Gálatas)
+            "O Espírito te ajuda a ter controle sobre o que você pensa e faz.", // Domínio Próprio (Gálatas)
+            "Colhemos o que plantamos. Faça o bem e escolha a Deus sempre.", // Plantar e Colher (Gálatas)
+            "Jesus é o único caminho que nos leva para perto de Deus Pai.", // Salvação/Caminho (João)
+            "Coloque Deus sempre em primeiro lugar em tudo o que fizer. Ele é o mais importante!", // Prioridades (Mateus)
+            "Se tiver medo, Deus é seu escudo e sua proteção mais forte. Corra para Ele!", // Proteção (Salmos)
+            "Ame muito, porque Deus colocou o amor no seu coração. O amor verdadeiro vem dEle.", // Amor (1 João)
+            "Jesus vai voltar para nos buscar e estaremos sempre com Ele. Aleluia!", // Volta de Cristo (Apocalipse)
         ],
         
         dailyVersesNTLH: [
+            // Versículos NTLH 1-35 (Existentes)
             "Para ser sábio, é preciso primeiro temer a Deus, o Senhor. Quem conhece o Santo Deus tem compreensão das coisas. (Provérbios 9:10)",
             "Confie no Senhor de todo o coração e não se apoie na sua própria inteligência. (Provérbios 3:5)",
             "Quem é cuidadoso no que diz salva a sua vida, mas quem fala demais se destrói. (Provérbios 13:3)",
@@ -150,7 +227,44 @@ const DATA = {
             "Portanto, que a perfeição seja a meta de vocês, assim como é a meta do Pai de vocês, que está no céu. (Mateus 5:48)",
             "Assim também nós, embora sejamos muitos, somos um só corpo por estarmos unidos com Cristo. E todos estamos unidos uns com os outros como partes diferentes de um só corpo. (Romanos 12:5)",
             "Para tudo há o seu momento certo; há tempo para cada propósito debaixo do céu. (Eclesiastes 3:1)",
-            "Portanto, vão a todos os povos e façam com que sejam meus seguidores, batizando esses seguidores em nome do Pai, do Filho e do Espírito Santo. (Mateus 28:19)"
+            "Portanto, vão a todos os povos e façam com que sejam meus seguidores, batizando esses seguidores em nome do Pai, do Filho e do Espírito Santo. (Mateus 28:19)",
+            
+            // Versículos NTLH 36-70 (Novos: Gênesis, Isaías, Efésios, Filipenses, Gálatas, e mais)
+            "No começo, Deus criou os céus e a terra. (Gênesis 1:1)",
+            "Assim Deus criou os seres humanos; ele os criou parecidos com Deus. Ele os criou homem e mulher. (Gênesis 1:27)",
+            "Aí o Senhor Deus disse: — Não é bom que o homem viva sozinho. Vou fazer para ele uma auxiliar que seja como ele. (Gênesis 2:18)",
+            "Mas o Senhor Deus chamou o homem e perguntou: — Onde é que você está? (Gênesis 3:9)",
+            "Porém o Senhor Deus ficou contente com Noé. (Gênesis 6:8)",
+            "Por isso, o próprio Deus lhes dará um sinal: uma moça virgem ficará grávida e terá um filho, e o chamará pelo nome de Emanuel. (Isaías 7:14)",
+            "Pois já nasceu uma criança, Deus nos mandou um filho. Ele será chamado de Conselheiro Maravilhoso, Deus Poderoso, Pai Eterno, Príncipe da Paz. (Isaías 9:6)",
+            "Mas a verdade é que ele foi ferido por causa dos nossos pecados. Ele foi maltratado por causa das nossas maldades. (Isaías 53:5)",
+            "Todos nós éramos como ovelhas que se desviaram; cada um seguiu o seu próprio caminho. Mas o Senhor castigou a ele por causa dos nossos pecados. (Isaías 53:6)",
+            "Escutem! Venham beber água, todos os que estão com sede; venham, mesmo que não tenham dinheiro! Venham, comprem comida e comam. (Isaías 55:1)",
+            "Pois vocês são salvos pela graça, por meio da fé. Essa salvação não vem de vocês; é um presente de Deus. (Efésios 2:8)",
+            "Não é uma recompensa pela dedicação de vocês, para que ninguém se orgulhe. (Efésios 2:9)",
+            "E façam todo o possível para manter a união que o Espírito lhes dá. (Efésios 4:3)",
+            "Não digam palavras que fazem mal aos outros, mas usem apenas palavras boas. (Efésios 4:29)",
+            "Portanto, imitem a Deus em tudo, pois vocês são seus filhos queridos. (Efésios 5:1)",
+            "Não se embriaguem com vinho, que fará vocês pecarem, mas sejam dominados pelo Espírito de Deus. (Efésios 5:18)",
+            "Maridos, amem as suas esposas, assim como Cristo amou a Igreja e deu a sua vida por ela. (Efésios 5:25)",
+            "Esposas, obedeçam ao seu marido, como fazem ao Senhor. (Efésios 5:22)",
+            "Filhos, obedeçam ao pai e à mãe, pois isso é o certo a fazer. (Efésios 6:1)",
+            "Para terminar: peçam a força do poder do Senhor. (Efésios 6:10)",
+            "Pois para mim, viver é Cristo, e morrer é lucro. (Filipenses 1:21)",
+            "Não façam nada por interesse pessoal ou por vaidade. Pelo contrário, sejam humildes e pensem que os outros são mais importantes do que vocês. (Filipenses 2:3)",
+            "Tenham entre vocês o mesmo modo de pensar que Cristo Jesus tinha. (Filipenses 2:5)",
+            "Não se preocupem com nada. Pelo contrário, peçam a Deus tudo o que precisam. (Filipenses 4:6)",
+            "Eu aguento qualquer coisa por meio de Cristo, que me dá a força. (Filipenses 4:13)",
+            "Já não sou eu quem vive, mas Cristo é quem vive em mim. (Gálatas 2:20)",
+            "Cristo nos libertou para que sejamos de fato livres. (Gálatas 5:1)",
+            "Mas o Espírito de Deus produz o amor, a alegria, a paz, a paciência, a delicadeza, a bondade, a fidelidade. (Gálatas 5:22)",
+            "a humildade e o domínio próprio. Contra essas coisas não existe lei. (Gálatas 5:23)",
+            "Não se enganem: ninguém pode zombar de Deus. Porque a pessoa sempre colhe aquilo que semeia. (Gálatas 6:7)",
+            "Jesus respondeu: — Eu sou o caminho, a verdade e a vida; ninguém pode chegar até o Pai a não ser por mim. (João 14:6)",
+            "Portanto, ponham em primeiro lugar na sua vida o Reino de Deus e aquilo que Deus quer. (Mateus 6:33)",
+            "Deus é o nosso refúgio e a nossa força, ele está sempre pronto para nos socorrer. (Salmos 46:1)",
+            "Meus queridos amigos, devemos amar uns aos outros porque o amor vem de Deus. (1 João 4:7)",
+            "Aquele que garante que tudo isso é verdade diz: — Certamente, eu venho logo! Amém! Vem, Senhor Jesus! (Apocalipse 22:20)"
         ]
     }
 };
@@ -193,6 +307,7 @@ const app = {
     renderVOTD() {
         const arr = DATA.bible.dailyVersesNVI; 
         const dayOfMonth = new Date().getDate();
+        // O operador módulo garante que o índice esteja sempre dentro do limite (0 a 69)
         const index = (dayOfMonth - 1) % arr.length; 
         const votdText = arr[index];
         
@@ -225,7 +340,7 @@ const app = {
             <p id="kidsVOTD">${kidsVOTDText}</p> 
             <p class="story-label">História do dia:</p> 
             <div id="kidsStory">${kidsStoryText}</div>
-            <p>Bíblia para crianças.</p>
+            <p class="kids-footer-note">Bíblia para crianças.</p>
         `;
     },
 
