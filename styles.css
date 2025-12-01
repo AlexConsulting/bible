@@ -1,0 +1,186 @@
+/* ----------------------------------- */
+/* 1. RESET E BASE MOBILE-FIRST        */
+/* ----------------------------------- */
+body {
+    /* Fonte sem serifa, limpa e altamente legível */
+    font-family: 'Arial', sans-serif; 
+    margin: 0;
+    padding: 0;
+    /* Fundo claro para alto contraste com o texto */
+    background: #f0f0f0; 
+    color: #333; 
+    line-height: 1.6;
+    /* Fonte maior para melhor legibilidade em Libras */
+    font-size: 110%; 
+}
+
+/* Container principal com padding seguro para todas as telas */
+.container {
+    padding: 1rem;
+}
+
+/* ----------------------------------- */
+/* 2. CARD E TIPOGRAFIA                */
+/* ----------------------------------- */
+.card {
+    background: white;
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    /* Sombra suave para dar profundidade e destacar o conteúdo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+h2 {
+    font-size: 1.3rem;
+    color: #1e3a8a; /* Azul marinho forte para títulos */
+    border-bottom: 2px solid #2563eb;
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+/* ----------------------------------- */
+/* 3. HEADER E NAVEGAÇÃO (Alto Contraste) */
+/* ----------------------------------- */
+header {
+    background: #1e3a8a; /* Azul marinho forte */
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#main-nav {
+    background: #2563eb; /* Azul primário */
+    color: white;
+    display: flex;
+    /* Distribuição uniforme dos itens na barra de navegação */
+    justify-content: space-around; 
+    padding: 0.75rem 0;
+    /* Fixa a navegação no topo da tela */
+    position: sticky; 
+    top: 0;
+    z-index: 10;
+}
+
+#main-nav span {
+    cursor: pointer;
+    padding: 0.5rem;
+    font-weight: bold;
+    flex-grow: 1;
+    text-align: center;
+    transition: background 0.3s;
+    /* Linha divisória sutil para separar os itens */
+    border-right: 1px solid rgba(255, 255, 255, 0.2); 
+}
+
+#main-nav span:last-child {
+    border-right: none;
+}
+
+#main-nav span:hover,
+#main-nav span.active {
+    background: #1e3a8a; /* Fundo mais escuro ao selecionar/ativo */
+}
+
+/* ----------------------------------- */
+/* 4. ELEMENTOS DE FORMULÁRIO/BOTÕES */
+/* ----------------------------------- */
+button {
+    width: 100%; /* Botões full-width para melhor usabilidade mobile */
+    padding: 12px;
+    margin-top: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+    background: #2563eb; 
+    color: white;
+    transition: background 0.3s;
+    font-size: 1rem;
+}
+
+button:hover {
+    background: #1e3a8a;
+}
+
+/* Estilo para items de planos de leitura */
+.plan-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 1rem;
+}
+
+.plan-item input[type="checkbox"] {
+    /* Aumenta o tamanho do checkbox para toque fácil no mobile */
+    transform: scale(1.3); 
+    margin-right: 20px;
+}
+
+/* ----------------------------------- */
+/* 5. MODO INFANTIL (Tema Neutro)    */
+/* ----------------------------------- */
+/* Estilo aplicado quando a classe 'kids-mode' está no body */
+body.kids-mode {
+    background: #fff8e1; /* Fundo Creme Suave */
+}
+
+.kids-mode .card {
+    background: #ffffff;
+    border: 3px solid #ffcc80; /* Borda laranja pastel */
+}
+
+.kids-mode h2 {
+    color: #ff9800; /* Laranja vibrante para títulos infantis */
+    border-bottom: 3px dotted #ffcc80;
+}
+
+.kids-mode #kidsStory {
+    font-size: 1.5rem; 
+    font-weight: bold;
+    text-align: center;
+    padding: 25px;
+    color: #4caf50; /* Verde amigável */
+    background: #e8f5e9; /* Fundo verde claro */
+    border-radius: 8px;
+    /* Adiciona um efeito lúdico de inclinação suave */
+    transform: rotate(-1deg); 
+    margin: 20px 0;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* ----------------------------------- */
+/* 6. RESPONSIVIDADE (Tablets e Desktop) */
+/* ----------------------------------- */
+/* A partir de 600px, aumenta um pouco os tamanhos e centraliza o conteúdo */
+@media (min-width: 600px) {
+    .container {
+        max-width: 700px; /* Largura máxima para legibilidade */
+        margin: 0 auto;
+        padding: 2rem 1rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    /* Botões não precisam ser 100% da largura em telas grandes */
+    button {
+        width: auto; 
+        padding: 12px 20px;
+        display: inline-block;
+        margin-right: 10px;
+    }
+}
